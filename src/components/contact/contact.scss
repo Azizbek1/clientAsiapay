@@ -1,0 +1,35 @@
+.contact{
+    padding: 50px 0;
+    background: #9ecef3bc;
+    background: linear-gradient(180deg, #9ecef3bc 0%,  rgb(215, 230, 255) 100%);
+    &__img{
+        img{
+            max-width: 100%;
+            height:auto;
+        }
+    }
+    h2{
+        text-align:center;
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    &__title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height:100%;
+        ul{
+            list-style: none;
+            li{ 
+                font-size: 18px;
+                font-weight: 400;
+                color: rgb(93, 93, 93);
+                margin: 20px 0;
+                .fas{
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.payment{
+    padding: 100px 0;
+    h2{
+        font-size: 32px;
+    }
+    p{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    &__category{
+        margin-bottom: 50px;
+    }
+    &__text{
+        display: flex;
+        justify-content: space-between;
+        &-all{
+            display: flex;
+            align-items: center;
+        }
+        &-title{
+            font-size: 20px;
+            font-weight: 400;
+            margin-right: 10px;
+        }
+        &-number{
+            font-size: 18px;
+            font-family: 600px;
+            color: grey;
+        }
+        &-slug{
+            color: #3cc;
+            border: 2px solid #3cc;
+            display: block;
+            padding: 5px;
+            border-radius: 10px;
+            transition: 500ms;
+            &:hover{
+                color: rgb(104, 255, 255);
+                border: 2px solid rgb(57, 223, 223);
+                box-shadow: 0 0 10px solid grey;
+            }
+        }
+    }
+   
+    &__cards{
+        margin-top: 20px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        padding: 20px 10px;
+        transition: 500ms linear;
+        &:hover{
+            border: 1px solid rgb(179, 179, 179);
+            box-shadow: 0 0 5px grey;
+            img{
+                transform: scale(1);
+            }
+        }
+        span{
+            img{
+                max-width: 100%;
+                height: auto;
+                transform: scale(0.9);
+                transition: 500ms linear; 
+            }
+        }
+    }
+    &__btn{
+        background: transparent !important;
+        box-shadow:  none !important;
+        padding: 0 !important;
+    }
+}

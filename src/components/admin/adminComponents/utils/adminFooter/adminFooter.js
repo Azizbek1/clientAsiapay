@@ -1,9 +1,13 @@
 import React from 'react';
-
+import "./adminfooter.scss";
 const Adminfooter = () => {
     return (
-        <div className="container"> 
-            <h2>footer</h2>
+        <div className="footer">
+            <footer className="main-footer">
+                <strong>Copyright &copy; 2022 <a href="javscriptVoid">AsiaPay</a>.</strong>
+                All rights reserved.
+            </footer>
+
         </div>
     );
 }

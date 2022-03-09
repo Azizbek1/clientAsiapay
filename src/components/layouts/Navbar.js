@@ -50,6 +50,11 @@ const Navbar = () => {
                 </Link>
               </MDBNavbarItem>
               <MDBNavbarItem className="nabar__item">
+                <Link className="nabar__link nav-link" to="/blog">
+                  Новости
+                </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem className="nabar__item">
                 <Link className="nabar__link nav-link" to="/contact">
                   Контакты
                 </Link>
@@ -57,6 +62,11 @@ const Navbar = () => {
               <MDBNavbarItem className="nabar__item">
                 <Link className="nabar__link nav-link" to="/vokansi">
                   Ваканси
+                </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem className="nabar__item">
+                <Link className="nabar__link nav-link" to="/paymet">
+                  Оплата
                 </Link>
               </MDBNavbarItem>
               <MDBNavbarItem className="nabar__item">

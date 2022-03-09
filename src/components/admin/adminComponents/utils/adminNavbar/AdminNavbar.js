@@ -1,87 +1,76 @@
-import React, { useState } from 'react';
-import "./adminnavbar.scss";
-import {
-    MDBContainer,
-    MDBNavbar,
-    MDBNavbarBrand,
-    MDBNavbarToggler,
-    MDBIcon,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBNavbarLink,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem,
-    MDBDropdownLink,
-    MDBCollapse
-  } from 'mdb-react-ui-kit';
+import React from 'react';
 import { Link } from 'react-router-dom';
-const Adminnavbar = () => {
-    const [showBasic, setShowBasic] = useState(false);
-    
+import {logOutAdmin} from '../../../../../actions'
+import {connect} from 'react-redux'
+import "./adminnavbar.scss";
+const Adminnavbar = (props) => {
     const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-      };
+        // localStorage.removeItem("token");
+        // window.location.reload();
+        props.logOutAdmin()
+    };
     return (
+
         <div>
-            <MDBNavbar expand='lg' light bgColor='light'>
-                <MDBContainer>
-                    <MDBNavbarBrand href='#'>Brand</MDBNavbarBrand>
+            <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <a className="nav-link" data-widget="pushmenu" href="javaScriptVoid" role="button"><i className="fas fa-bars"></i></a>
+                    </li>
+                    <li className="nav-item d-none d-sm-inline-block">
+                        <a href="index3.html" className="nav-link">Home</a>
+                    </li>
+                    <li className="nav-item d-none d-sm-inline-block">
+                        <a href="javaScriptVoid" className="nav-link">Contact</a>
+                    </li>
+                </ul>
 
-                    <MDBNavbarToggler
-                        aria-controls='navbarSupportedContent'
-                        aria-expanded='false'
-                        aria-label='Toggle navigation'
-                        onClick={() => setShowBasic(!showBasic)}
-                    >
-                        <MDBIcon icon='bars' fas />
-                    </MDBNavbarToggler>
+                <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                        <a className="nav-link" data-widget="navbar-search" href="javaScriptVoid" role="button">
+                            <i className="fas fa-search"></i>
+                        </a>
+                        <div className="navbar-search-block">
+                            <form className="form-inline">
+                                <div className="input-group input-group-sm">
+                                    <input className="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" />
+                                    <div className="input-group-append">
+                                        <button className="btn btn-navbar" type="submit">
+                                            <i className="fas fa-search"></i>
+                                        </button>
+                                        <button className="btn btn-navbar" type="button" data-widget="navbar-search">
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li className="nav-item">
+                        <Link onClick={handleLogout} to="/login"  className="btn btn-danger">
+                            Выйти
+                        </Link>
+                    </li>
 
-                    <MDBCollapse navbar show={showBasic}>
-                        <MDBNavbarNav className='navbar__admin'>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink active aria-current='page' href='#'>
-                                    Home
-                                </MDBNavbarLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href='#'>Link</MDBNavbarLink>
-                            </MDBNavbarItem>
 
-                            <MDBNavbarItem>
-                                <MDBDropdown>
-                                    <MDBDropdownToggle tag='a' className='nav-link'>
-                                        Dropdown
-                                    </MDBDropdownToggle>
-                                    <MDBDropdownMenu>
-                                        <MDBDropdownItem>
-                                            <MDBDropdownLink>Action</MDBDropdownLink>
-                                        </MDBDropdownItem>
-                                        <MDBDropdownItem>
-                                            <MDBDropdownLink>Another action</MDBDropdownLink>
-                                        </MDBDropdownItem>
-                                        <MDBDropdownItem>
-                                            <MDBDropdownLink>Something else here</MDBDropdownLink>
-                                        </MDBDropdownItem>
-                                    </MDBDropdownMenu>
-                                </MDBDropdown>
-                            </MDBNavbarItem>
-
-                            <MDBNavbarItem>
-                                <Link onClick={handleLogout}  to="/login" className="btn btn-danger">
-                                    Logout
-                                </Link>
-                            </MDBNavbarItem>
-                        </MDBNavbarNav>
-
-                      
-                    </MDBCollapse>
-                </MDBContainer>
-            </MDBNavbar>
+                    <li className="nav-item">
+                        <a className="nav-link" data-widget="fullscreen" href="javaScriptVoid" role="button">
+                            <i className="fas fa-expand-arrows-alt"></i>
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="javaScriptVoid" role="button">
+                            <i className="fas fa-th-large"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     );
 }
 
-export default Adminnavbar;
+const mapStateToProps = (state) => {
+    return state
+}
+
+export default connect(mapStateToProps,{logOutAdmin})(Adminnavbar);
